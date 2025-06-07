@@ -22,7 +22,7 @@ function RouteLegend() {
       fontFamily: 'Arial, sans-serif',
       boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
     }}>
-      <div style={{ fontWeight: 'bold', marginBottom: '10px', color: '#fff' }}>U-Bahn Lines</div>
+      <div style={{ fontWeight: 'bold', marginBottom: '10px', color: '#fff' }}>Subway Lines</div>
       {ROUTE_LEGEND.map((route) => (
         <div key={route.name} style={{ 
           display: 'flex', 

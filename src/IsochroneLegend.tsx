@@ -23,10 +23,10 @@ function IsochroneLegend() {
       boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
       maxWidth: showDetails ? '400px' : '300px'
     }}>
-      <div style={{ 
-        display: 'flex', 
-        alignItems: 'center', 
-        marginBottom: '10px' 
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        marginBottom: '10px'
       }}>
         <div style={{ fontWeight: 'bold', color: '#fff', marginRight: '8px' }}>Travel Time Zones</div>
         <button
@@ -60,15 +60,27 @@ function IsochroneLegend() {
           <div style={{
             width: '20px',
             height: '12px',
-            backgroundColor: item.color,
+            position: 'relative',
             marginRight: '10px',
             borderRadius: '2px',
-            border: '1px solid #666'
-          }}></div>
+            border: '1px solid #666',
+            backgroundColor: '#4a4a4a'
+          }}>
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: item.color,
+              opacity: 0.2,
+              borderRadius: '1px'
+            }}></div>
+          </div>
           <span style={{ color: '#fff', fontWeight: '400' }}>{item.duration}</span>
         </div>
       ))}
-      
+
       {showDetails && (
         <div style={{
           marginTop: '15px',
@@ -80,11 +92,11 @@ function IsochroneLegend() {
           lineHeight: '1.4'
         }}>
           <div style={{ fontWeight: 'bold', color: '#fff', marginBottom: '8px' }}>How This Works:</div>
-          
+
           <div style={{ marginBottom: '8px' }}>
-            <strong style={{ color: '#fff' }}>The Problem:</strong> If you're at a transit stop, how far can you realistically get within a certain amount of time using public transport + walking?
+            <strong style={{ color: '#fff' }}>The Problem:</strong> If you're at a transit stop, how far can you realistically get within a certain amount of time using subway + walking?
           </div>
-          
+
           <div style={{ marginBottom: '8px' }}>
             <strong style={{ color: '#fff' }}>The Calculation:</strong>
             <ol style={{ margin: '4px 0', paddingLeft: '16px' }}>
@@ -92,25 +104,25 @@ function IsochroneLegend() {
               <li>For each time limit (10, 20, 30, 40 minutes):
                 <ul style={{ marginTop: '2px', paddingLeft: '16px' }}>
                   <li>Finds all stations reachable within that time by transit</li>
-                  <li>Calculates how much time is left over for walking (assumes 1.2 m/s walking speed)</li>
+                  <li>Calculates how much time is left over for walking (assumes 1.4 m/s walking speed)</li>
                   <li>Creates circular "walking zones" around each reachable station</li>
                   <li>Combines all these zones into one continuous area (isochrone)</li>
                 </ul>
               </li>
             </ol>
           </div>
-          
+
           <div style={{ marginBottom: '8px' }}>
             <strong style={{ color: '#fff' }}>The Output:</strong> Colored zones on a map showing what you can reach in each time limit.
           </div>
-          
+
           <div style={{ marginBottom: '12px' }}>
             This is useful for urban planning, finding apartments, or understanding transit accessibility - basically answering "what can I reach from this location within X minutes?"
           </div>
-          
-          <div style={{ 
-            borderTop: '1px solid #555', 
-            paddingTop: '8px', 
+
+          <div style={{
+            borderTop: '1px solid #555',
+            paddingTop: '8px',
             fontSize: '11px',
             color: '#999'
           }}>
@@ -123,6 +135,9 @@ function IsochroneLegend() {
             </div>
             <div style={{ marginBottom: '3px' }}>
               MVG data from <a href="https://www.mvg.de/verbindungen/Fahrplandaten.html" target="_blank" rel="noopener noreferrer" style={{ color: '#74a9cf', textDecoration: 'none' }}>mvg.de</a>
+            </div>
+            <div style={{ marginBottom: '3px' }}>
+              Source code: <a href="https://github.com/stefanwaldhauser/muc-subwaysheds" target="_blank" rel="noopener noreferrer" style={{ color: '#74a9cf', textDecoration: 'none' }}>GitHub</a>
             </div>
             <div>
               Reach out with feedback: <a href="https://blog.stefanwaldhauser.me/" target="_blank" rel="noopener noreferrer" style={{ color: '#74a9cf', textDecoration: 'none' }}>stefanwaldhauser.me</a>

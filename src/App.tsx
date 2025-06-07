@@ -52,7 +52,7 @@ function App() {
     latitude: number;
     stopId: string;
   } | null>(null);
-  
+
   const [lockedStop, setLockedStop] = useState<{
     name: string;
     longitude: number;
@@ -70,7 +70,7 @@ function App() {
         latitude: feature.geometry.coordinates[1],
         stopId: feature.properties?.stop_id || ''
       };
-      
+
       // If clicking the same station that's already locked, unlock it
       if (lockedStop && lockedStop.stopId === stopData.stopId) {
         setLockedStop(null);
@@ -84,7 +84,7 @@ function App() {
   const handleStopHover = (event: MapLayerMouseEvent) => {
     // Don't update hover state if a station is locked
     if (lockedStop) return;
-    
+
     const feature = event.features?.[0];
     if (feature && feature.geometry.type === 'Point') {
       setHoveredStop({
@@ -171,6 +171,17 @@ function App() {
             paint={{
               'fill-color': ['get', 'fill'],
               'fill-opacity': 0.2
+            }}
+            beforeId="stops-layer"
+          />
+          <Layer
+            id="isochrones-outline"
+            type="line"
+            paint={{
+              'line-color': '#000000',
+              'line-width': 2,
+              'line-opacity': 0.4,
+              'line-dasharray': [2, 2]
             }}
             beforeId="stops-layer"
           />

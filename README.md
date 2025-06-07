@@ -1,21 +1,22 @@
 # Munich Subway Sheds 🥨
 
-An interactive visualization of Munich's U-Bahn (subway) network showing how far you can travel from any station within specific time limits using public transit and walking.
+An interactive visualization of Munich's subway network showing how far you can travel from any station within specific time limits using subway and walking.
 
 ![Munich Subway Sheds](https://img.shields.io/badge/Built%20with-React%20%2B%20TypeScript-blue?style=flat-square)
 ![MapLibre GL JS](https://img.shields.io/badge/Maps-MapLibre%20GL%20JS-green?style=flat-square)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=flat-square&logo=vercel)](https://muc-subwaysheds.vercel.app)
 
 ## Features
 
-- **Interactive Map**: Explore Munich's U-Bahn network on a dark-themed map
+- **Interactive Map**: Explore Munich's subway network on a dark-themed map
 - **Isochrone Visualization**: Hover over any station to see travel time zones (10, 20, 30, 40 minutes)
 - **Station Locking**: Click stations to "lock" their isochrones for comparison
-- **Route Legend**: Visual guide to all 8 U-Bahn lines with their official colors
+- **Route Legend**: Visual guide to all 8 subway lines with their official colors
 - **Detailed Information**: Learn how isochrones are calculated and what they represent
 
 ## How It Works
 
-**The Problem**: If you're at a transit stop, how far can you realistically get within a certain amount of time using public transport + walking?
+**The Problem**: If you're at a transit stop, how far can you realistically get within a certain amount of time using subway + walking?
 
 **The Calculation**:
 1. Takes travel time data between transit stations
@@ -30,14 +31,14 @@ An interactive visualization of Munich's U-Bahn (subway) network showing how far
 ## Usage
 
 - **Hover** over any station to see its travel time zones
-- **Click** a station to lock its visualization 
+- **Click** a station to lock its visualization
 - **Click** the locked station again to unlock
 - **Click** the info button (ⓘ) in the legend for detailed explanations
 
 ## Tech Stack
 
 - **React** + **TypeScript** - UI framework and type safety
-- **Vite** - Build tool and development server  
+- **Vite** - Build tool and development server
 - **MapLibre GL JS** - Interactive maps and geospatial rendering
 - **GeoJSON** - Geographic data format for routes, stations, and isochrones
 
@@ -69,13 +70,13 @@ npm run preview
 ```
 src/
 ├── App.tsx                 # Main map component
-├── RouteLegend.tsx         # U-Bahn lines legend
+├── RouteLegend.tsx         # Subway lines legend
 └── IsochroneLegend.tsx     # Travel time zones legend
 
 public/
 └── data/
-    ├── routes/             # U-Bahn line geometries
-    ├── stops/              # Station locations  
+    ├── routes/             # Subway line geometries
+    ├── stops/              # Station locations
     └── isochrones/         # Travel time zone polygons
 ```
 
@@ -85,4 +86,4 @@ This project is for educational and research purposes. Transit data belongs to M
 
 ---
 
-Built with ❤️ for Munich's amazing public transit system
+Built with ❤️ for Munich's amazing subway system
